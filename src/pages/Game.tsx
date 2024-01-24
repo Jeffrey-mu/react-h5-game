@@ -9,8 +9,8 @@ function Game() {
     // @ts-ignore
     useFetch<groupByDatePara[]>('http://101.43.206.247:3230/game-files/list').then(res => {
       setData(groupByDate(res.data))
-    }, [])
-  })
+    })
+  }, [])
   return (
     <>
       {data.map((item) => (

@@ -10,7 +10,6 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@tailwindui/react": "^0.1.1",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.0",
         "lucide-react": "^0.314.0",
@@ -18,6 +17,7 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.21.3",
         "tailwind-merge": "^2.2.1",
+        "tailwindcss-animate": "^1.0.7",
         "vaul": "^0.8.9"
     },
     "devDependencies": {
