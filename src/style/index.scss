@@ -14,6 +14,7 @@
     padding: 10px;
     flex: 1;
     margin: 15px auto;
+    min-height: calc(100vh - (64px + 180px));
 }
 
 .game-list {
@@ -71,4 +72,22 @@ footer {
     ul li {
         padding: 10px;
     }
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
 }
