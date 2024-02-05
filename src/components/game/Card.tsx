@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/drawer"
 
 import type { groupByDatePara } from '@/lib/utils';
+import { GameSeriesPath } from '@/pages/Game';
 interface GameCardrops {
   value: groupByDatePara;
 }
@@ -34,7 +35,7 @@ export default function GameCard({ value }: GameCardrops) {
               </div>
             </DrawerTrigger>
             <DrawerContent>
-              <iframe src={`http://101.43.206.247:3230/games/${value.folderName}/index.html`} className="play_box" />
+              <iframe src={`${GameSeriesPath}/games/${value.folderName}/index.html`} className="play_box" />
             </DrawerContent>
           </Drawer>
         </CardContent>

@@ -15,15 +15,16 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-export const GameSeriesPath = 'http://101.43.206.247:3230'
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
+export const host = window.location.host
+export  const GameSeriesPath = 'http://' + host
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   const [addGame, setAddGame] = useState<string>('')
   const [open, setOpen] = useState(false);
   const { toast } = useToast()
-  const host = window.location.host
+
 
   function getGameList() {
     useFetch<groupByDatePara[]>(`${GameSeriesPath}/game-files/list`).then(res => {
@@ -31,7 +32,6 @@ function Game() {
     })
   }
   useEffect(() => {
-    console.log(host)
     // @ts-ignore
     getGameList()
   }, [])
