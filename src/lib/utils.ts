@@ -37,10 +37,9 @@ export function groupByDate(data: groupByDatePara[]): groupByDateReturn[] {
   }));
 }
 type useFetchResponse<T> = { data: T };
-export async function useFetch<T>(url: string) {
+export async function useFetch<T>(url: string, options?: {
+}) {
   return (await (
-    await fetch(url, {
-      cache: 'no-store',
-    })
+    await fetch(url, options)
   ).json()) as useFetchResponse<T>;
 }
