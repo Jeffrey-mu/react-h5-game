@@ -52,8 +52,9 @@ function Game() {
         title: res.status === 200 ? "添加成功！" : "添加失败！",
         // @ts-ignore
         description: res.message,
-      }p
+      }
       toast(data)
+      // @ts-ignore
       if(res.status === 200) {
         setOpen(false)
         getGameList()
