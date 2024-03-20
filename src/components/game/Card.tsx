@@ -23,7 +23,7 @@ export default function GameCard({ value }: GameCardrops) {
               <div>
                 <img
                   className='m-auto rounded-lg'
-                  src={`${GameSeriesPath}/s-assets/H5-1/${value.folderName}.png`}
+                  src={`https://res.minigame.vip/gc-assets/${value.folderName.replace('.apps.minigame.vip', '')}/${value.folderName.replace('.apps.minigame.vip', '')}_icon.png`}
                   alt=""
                   width="100"
                   height="100"
@@ -31,7 +31,7 @@ export default function GameCard({ value }: GameCardrops) {
                 {value.folderName.replace('.apps.minigame.vip', '')}
               </div>
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent className='h-[90%]'>
               <iframe src={`${GameSeriesPath}/games/${value.folderName}/index.html`} className="play_box" />
             </DrawerContent>
           </Drawer>

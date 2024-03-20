@@ -18,7 +18,8 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 export const host = window.location.host
-export  const GameSeriesPath = 'http://' + host
+// export  const GameSeriesPath = 'http://' + host
+export const GameSeriesPath = 'http://101.43.206.247:3230'
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   const [addGame, setAddGame] = useState<string>('')
@@ -55,7 +56,7 @@ function Game() {
       }
       toast(data)
       // @ts-ignore
-      if(res.status === 200) {
+      if (res.status === 200) {
         setOpen(false)
         getGameList()
       }
