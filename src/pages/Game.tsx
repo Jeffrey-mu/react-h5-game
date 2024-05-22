@@ -19,7 +19,15 @@ import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 export const host = window.location.host
 // export  const GameSeriesPath = 'http://' + host
-export const GameSeriesPath = 'http://101.43.206.247:3230'
+export const GameSeriesPath = 'http://localhost:3230'
+function isUrl(url: string) {
+  try {
+    new URL(url)
+    return true
+  } catch (error) {
+    return false
+  }
+}
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   const [addGame, setAddGame] = useState<string>('')
@@ -45,7 +53,7 @@ function Game() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        url: addGame
+        url: isUrl(addGame) ? addGame : `https://vivo-center.minigame.vip/game/${addGame}/play?from=home`
       })
     }).then(res => {
       const data = {
@@ -77,13 +85,13 @@ function Game() {
                   添加游戏
                 </DialogTitle>
                 <DialogDescription>
-                  请复制游戏链接 URL
+                  请复制游戏链接 URL/NAME
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="name" className="text-right">
-                    URL
+                    URL/NAME
                   </Label>
                   <Input id="name" value={addGame} onChange={(e) => setAddGame(e.target.value)} className="col-span-3" />
                 </div>

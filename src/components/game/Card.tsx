@@ -32,7 +32,7 @@ export default function GameCard({ value }: GameCardrops) {
               </div>
             </DrawerTrigger>
             <DrawerContent className='h-[90%]'>
-              <iframe src={`${GameSeriesPath}/games/${value.folderName}/index.html`} className="play_box" />
+              <iframe id='gameIframe' src={`${GameSeriesPath}/games/${value.folderName}/index.html`} className="play_box" />
             </DrawerContent>
           </Drawer>
         </CardContent>
