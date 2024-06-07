@@ -1,24 +1,26 @@
 import {
   Card,
   CardContent,
-} from '@/components/ui/card';
+} from '@/components/ui/card'
 import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
 } from "@/components/ui/drawer"
 
-import type { groupByDatePara } from '@/lib/utils';
-import { GameSeriesPath } from '@/pages/Game';
+import type { groupByDatePara } from '@/lib/utils'
+import { GameSeriesPath } from '@/pages/Game'
 interface GameCardrops {
-  value: groupByDatePara;
+  value: groupByDatePara
 }
 export default function GameCard({ value }: GameCardrops) {
   return (
     <>
       <Card className="game-card">
         <CardContent className='px-3 py-3'>
-          <Drawer>
+          <Drawer onOpenChange={(isOpen) => {
+            document.title = isOpen ? value.folderName.replace('.apps.minigame.vip', '') : 'H5自研游戏'
+          }}>
             <DrawerTrigger asChild>
               <div>
                 <img
@@ -38,5 +40,5 @@ export default function GameCard({ value }: GameCardrops) {
         </CardContent>
       </Card>
     </>
-  );
+  )
 }
