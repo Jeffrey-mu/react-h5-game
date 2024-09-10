@@ -25,12 +25,12 @@ export default function GameCard({ value }: GameCardrops) {
               <div>
                 <img
                   className='m-auto rounded-lg'
-                  src={`https://res.minigame.vip/gc-assets/${value.folderName.replace('.apps.minigame.vip', '')}/${value.folderName.replace('.apps.minigame.vip', '')}_icon.png`}
+                  src={`${GameSeriesPath}/s-assets/H5-1/${value.folderName}.png`}
                   alt=""
                   width="100"
                   height="100"
                 />
-                {value.folderName.replace('.apps.minigame.vip', '')}
+                {value.folderName}
               </div>
             </DrawerTrigger>
             <DrawerContent className='h-[90%]'>

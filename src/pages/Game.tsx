@@ -18,14 +18,14 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 export const host = window.location.host
-export  const GameSeriesPath = 'http://' + host
+// export  const GameSeriesPath = 'http://' + host
+export  const GameSeriesPath = 'http://localhost:3230'
 // export const GameSeriesPath = 'http://101.43.206.247:3230'
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   const [addGame, setAddGame] = useState<string>('')
   const [open, setOpen] = useState(false);
   const { toast } = useToast()
-
 
   function getGameList() {
     useFetch<groupByDatePara[]>(`${GameSeriesPath}/game-files/list`).then(res => {
