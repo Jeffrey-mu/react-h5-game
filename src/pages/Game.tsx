@@ -1,9 +1,9 @@
-import GameCard from '@/components/game/Card';
-import { useFetch } from '@/lib/utils';
-import { groupByDatePara, groupByDate, groupByDateReturn } from '@/lib/utils';
-import { useState, useEffect } from 'react';
+import GameCard from '@/components/game/Card'
+import { useFetch } from '@/lib/utils'
+import { groupByDatePara, groupByDate, groupByDateReturn } from '@/lib/utils'
+import { useState, useEffect } from 'react'
 import "@/style/index.css"
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -18,12 +18,14 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 export const host = window.location.host
-export  const GameSeriesPath = 'http://' + host
+export const GameSeriesPath = 'http://' + host
 // export const GameSeriesPath = 'http://101.43.206.247:3230'
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   const [addGame, setAddGame] = useState<string>('')
-  const [open, setOpen] = useState(false);
+  const [gameName, setGameName] = useState<string>('')
+  const [imageUrl, setImageUrl] = useState<string>('')
+  const [open, setOpen] = useState(false)
   const { toast } = useToast()
 
 
@@ -45,7 +47,9 @@ function Game() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        url: addGame
+        url: addGame,
+        name: gameName,
+        imageUrl: imageUrl
       })
     }).then(res => {
       const data = {
@@ -77,15 +81,42 @@ function Game() {
                   添加游戏
                 </DialogTitle>
                 <DialogDescription>
-                  请复制游戏链接 URL
+                  请填写游戏信息
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name" className="text-right">
+                  <Label htmlFor="url" className="text-right">
                     URL
                   </Label>
-                  <Input id="name" value={addGame} onChange={(e) => setAddGame(e.target.value)} className="col-span-3" />
+                  <Input
+                    id="url"
+                    value={addGame}
+                    onChange={(e) => setAddGame(e.target.value)}
+                    className="col-span-3"
+                  />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="name" className="text-right">
+                    游戏名称
+                  </Label>
+                  <Input
+                    id="name"
+                    value={gameName}
+                    onChange={(e) => setGameName(e.target.value)}
+                    className="col-span-3"
+                  />
+                </div>
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="image" className="text-right">
+                    图片路径
+                  </Label>
+                  <Input
+                    id="image"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                    className="col-span-3"
+                  />
                 </div>
               </div>
               <DialogFooter>
