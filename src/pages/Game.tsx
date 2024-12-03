@@ -70,9 +70,9 @@ function Game() {
 
   }
   return (
-    <div className="container mx-auto px-4 py-6">
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex items-center justify-between pb-4 border-b">
+    <div className="container mx-auto px-4">
+      <div className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4">
+        <div className="flex items-center justify-between border-b pb-4">
           <h1 className="text-3xl font-bold text-primary">游戏库</h1>
           {host !== '101.43.206.247:3230' && (
             <Dialog open={open} onOpenChange={setOpen}>
@@ -155,7 +155,7 @@ function Game() {
         </div>
       </div>
 
-      <ScrollArea className="h-[calc(100vh-200px)] pr-4 mt-6">
+      <ScrollArea className="h-[calc(100vh-120px)] pr-4 mt-4">
         <div className="space-y-8">
           {data.map((item) => (
             <Card key={item.date} className="p-6">
