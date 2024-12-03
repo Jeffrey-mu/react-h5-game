@@ -10,7 +10,9 @@ import {
 
 interface GameCardProps {
   value: {
-    folderName: string
+    folderName: string,
+    fileCount: number,
+    folderSize: string
   }
 }
 
@@ -62,6 +64,9 @@ function GameCard({ value }: GameCardProps) {
               <h3 className="font-semibold text-lg leading-tight line-clamp-1 group-hover:text-primary transition-colors">
                 {value.folderName}
               </h3>
+              <div className="text-sm text-gray-500 mt-1">
+                {value.fileCount} files · {value.folderSize}
+              </div>
             </div>
           </CardContent>
         </Card>

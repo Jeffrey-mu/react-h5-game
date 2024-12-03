@@ -7,6 +7,8 @@ export function cn(...inputs: ClassValue[]) {
 export type groupByDatePara = {
   folderDate: string;
   folderName: string;
+  fileCount: number;
+  folderSize: string;
 };
 export type groupByDateReturn = {
   date: string;
